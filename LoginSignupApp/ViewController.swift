@@ -14,6 +14,32 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let welcomeVC = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+        
+        if let sceneDelegate = self.view?.window?.windowScene?.delegate as? SceneDelegate{
+            
+            let newNavigationController = UINavigationController(rootViewController: welcomeVC)
+            
+            sceneDelegate.window?.rootViewController = newNavigationController
+        }
+        
+        
+    }
+    
+    @IBAction func signTapped(_ sender: UIButton) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let signVC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController")
+        
+        self.navigationController?.pushViewController(signVC, animated: true)
+        
+    }
+    
+    
 }
 
